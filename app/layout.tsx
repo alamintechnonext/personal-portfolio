@@ -9,7 +9,8 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Project Management Professional Portfolio',
-  description: 'Certified Scrum Master (CSM) with 5+ years of experience in Product & Project Management',
+  description:
+    'Certified Scrum Master (CSM) with 5+ years of experience in Product & Project Management',
 };
 
 export default function RootLayout({
@@ -18,16 +19,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang='en' suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
+          attribute='class'
+          defaultTheme='system'
           enableSystem
           disableTransitionOnChange
         >
           <Navigation />
-          <main className="min-h-screen bg-background">{children}</main>
+          <main className='min-h-screen bg-background'>{children}</main>
           <Toaster />
         </ThemeProvider>
       </body>

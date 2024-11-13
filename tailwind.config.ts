@@ -16,6 +16,17 @@ const config: Config = {
       },
       container: {
         center: true,
+        padding: {
+          DEFAULT: '1rem',
+          sm: '1rem',
+          md: '1rem',
+          lg: '0.5rem',
+          xl: '0.5rem',
+          '2xl': '0.5rem',
+        },
+        screens: {
+          xl: '1235px',
+        },
       },
       borderRadius: {
         lg: 'var(--radius)',
