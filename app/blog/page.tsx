@@ -37,44 +37,40 @@ export default function BlogPage() {
       </div>
       <div className='grid gap-6'>
         {filteredPosts?.length ? (
-          filteredPosts.map((post, index) => (
-            <Card
-              key={index}
-              className='group border p-6 py-12 transition-all duration-300 hover:border-blue-400'
-            >
-              <div className='mb-4 flex flex-col justify-between md:flex-row'>
-                <h2 className='mb-2 text-2xl font-semibold md:mb-0'>
-                  <Link
-                    href={`/blog/${post.title.toLowerCase().replace(/\s+/g, '-')}`}
-                    className='hover:text-primary'
-                  >
+          filteredPosts.map((post) => (
+            <Link key={post.id} href={`/blog/${post.id}`}>
+              <Card className='group border p-6 py-12 transition-all duration-300 hover:border-blue-400'>
+                <div className='mb-4 flex flex-col justify-between md:flex-row'>
+                  <h2 className='mb-2 text-2xl font-semibold transition-all duration-300 group-hover:text-blue-500 md:mb-0'>
                     {post.title}
-                  </Link>
-                </h2>
-                <div className='text-sm text-muted-foreground'>
-                  <time dateTime={post.date}>
-                    {new Date(post.date).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })}
-                  </time>
-                  <span className='mx-2'>·</span>
-                  <span>{post.readTime}</span>
-                </div>
-              </div>
-              <p className='mb-4 text-muted-foreground'>{post.excerpt}</p>
-              <div className='flex flex-wrap gap-2'>
-                {post.tags.map((tag, i) => (
-                  <div
-                    className='group me-1 rounded-full border-[1px] border-transparent bg-gray-200 px-2 py-1 text-[13px] transition-all duration-300 group-hover:border-blue-300 dark:border-blue-400 dark:bg-transparent dark:text-white'
-                    key={i}
-                  >
-                    {tag}
+                  </h2>
+                  <div className='text-sm text-muted-foreground'>
+                    <time dateTime={post.date}>
+                      {new Date(post.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </time>
+                    <span className='mx-2'>·</span>
+                    <span>{post.readTime}</span>
                   </div>
-                ))}
-              </div>
-            </Card>
+                </div>
+                <p className='mb-4 text-muted-foreground'>
+                  {post.shortDescription}
+                </p>
+                <div className='flex flex-wrap gap-2'>
+                  {post.tags.map((tag, i) => (
+                    <div
+                      className='group me-1 rounded-full border-[1px] border-transparent bg-gray-200 px-2 py-1 text-[13px] transition-all duration-300 group-hover:border-blue-300 dark:border-blue-400 dark:bg-transparent dark:text-white'
+                      key={i}
+                    >
+                      {tag}
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            </Link>
           ))
         ) : (
           <div>

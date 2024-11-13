@@ -1,8 +1,9 @@
 export interface BlogPostDataProps {
   id: string | number;
   title: string;
-  excerpt: string;
+  details: string;
   date: string;
+  shortDescription: string;
   readTime: string;
   tags: string[];
 }
