@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "export": "next build && next export",
-    "lint": "eslint --fix src && prettier --check .",
+    "lint": "eslint --fix app components hooks lib types && prettier --write .",
+    "lint:check": "eslint --ext .js,.jsx,.ts,.tsx app components hooks lib types && prettier --check .",
     "prepare": "husky install",
     "format": "prettier --write --ignore-path .gitignore .",
     "format:fix": "prettier --write --ignore-path .gitignore ."
@@ -51,7 +52,6 @@
     "cmdk": "^1.0.0",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.3.0",
-    "eslint": "8.49.0",
     "eslint-config-next": "13.5.1",
     "input-otp": "^1.2.4",
     "lucide-react": "^0.446.0",
@@ -74,6 +74,9 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "husky": "^9.1.6",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.8"

@@ -74,6 +74,8 @@ const config: Config = {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))',
         },
+        'theme-dark-bg': '#1f1f38',
+        'theme-btn': '#4db5ff',
       },
       keyframes: {
         'accordion-down': {
