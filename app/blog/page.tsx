@@ -19,17 +19,17 @@ export default function BlogPage() {
 
   return (
     <div className='container py-12'>
-      <div className='mb-8'>
+      <div className='mb-8 items-start justify-between sm:flex'>
         <h1 className='mb-8 text-center text-4xl font-bold lg:text-start'>
           Blog & Insights
         </h1>
-        <div className='relative max-w-md'>
+        <div className='relative sm:max-w-md'>
           <Search className='absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground' />
           <input
             type='text'
             id='name'
             placeholder='Search posts...'
-            className='focus:shadow-outline block w-full appearance-none rounded-md border border-gray-300 bg-white px-3 py-3 pl-10 leading-normal hover:border-blue-400 focus:border-blue-400 focus:outline-none dark:bg-transparent'
+            className='focus:shadow-outline block w-[100%] appearance-none rounded-md border border-gray-300 bg-white px-3 py-3 pl-10 leading-normal hover:border-blue-400 focus:border-blue-400 focus:outline-none dark:bg-transparent'
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
