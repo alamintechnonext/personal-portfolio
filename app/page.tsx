@@ -10,7 +10,7 @@ export default function Home() {
       {/* Hero Section with Image */}
       <section className='mb-16 flex flex-col-reverse items-center gap-12 md:flex-row'>
         <div className='flex-1 text-center md:text-left'>
-          <h1 className='mb-6 text-4xl font-bold tracking-tighter md:text-6xl'>
+          <h1 className='mb-6 text-4xl font-bold md:text-6xl'>
             Project Management Professional
           </h1>
           <p className='mb-8 max-w-[700px] text-xl text-muted-foreground'>
@@ -32,7 +32,7 @@ export default function Home() {
             src='https://images.unsplash.com/photo-1560250097-0b93528c311a'
             alt='Professional Profile'
             fill
-            className='object-cover'
+            className='object-cover object-top'
             priority
           />
         </div>
@@ -44,7 +44,7 @@ export default function Home() {
           Key Areas of Expertise
         </h2>
         <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4'>
-          <Card className='p-6'>
+          <Card className='group p-6 transition-all duration-300 hover:border-blue-400'>
             <BriefcaseIcon className='mb-4 h-12 w-12 text-primary' />
             <h3 className='mb-2 text-xl font-semibold'>Project Management</h3>
             <p className='text-muted-foreground'>
@@ -52,7 +52,7 @@ export default function Home() {
               time and within budget.
             </p>
           </Card>
-          <Card className='p-6'>
+          <Card className='group p-6 transition-all duration-300 hover:border-blue-400'>
             <Users className='mb-4 h-12 w-12 text-primary' />
             <h3 className='mb-2 text-xl font-semibold'>Team Leadership</h3>
             <p className='text-muted-foreground'>
@@ -60,7 +60,7 @@ export default function Home() {
               work environment.
             </p>
           </Card>
-          <Card className='p-6'>
+          <Card className='group p-6 transition-all duration-300 hover:border-blue-400'>
             <Award className='mb-4 h-12 w-12 text-primary' />
             <h3 className='mb-2 text-xl font-semibold'>Agile & Scrum</h3>
             <p className='text-muted-foreground'>
@@ -68,7 +68,7 @@ export default function Home() {
               methodologies and practices.
             </p>
           </Card>
-          <Card className='p-6'>
+          <Card className='group p-6 transition-all duration-300 hover:border-blue-400'>
             <BookOpen className='mb-4 h-12 w-12 text-primary' />
             <h3 className='mb-2 text-xl font-semibold'>Strategic Planning</h3>
             <p className='text-muted-foreground'>
@@ -88,7 +88,7 @@ export default function Home() {
           </Button>
         </div>
         <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
-          <Card className='p-6'>
+          <Card className='group p-6 transition-all duration-300 hover:border-blue-400'>
             <h3 className='mb-2 text-xl font-semibold'>
               Enterprise Digital Transformation
             </h3>
@@ -98,10 +98,12 @@ export default function Home() {
               efficiency.
             </p>
             <Button asChild variant='outline'>
-              <Link href='/projects/digital-transformation'>Learn More</Link>
+              <Link href='https://google.com' target='_blank'>
+                Learn More
+              </Link>
             </Button>
           </Card>
-          <Card className='p-6'>
+          <Card className='group p-6 transition-all duration-300 hover:border-blue-400'>
             <h3 className='mb-2 text-xl font-semibold'>
               Agile Implementation Program
             </h3>
@@ -110,7 +112,9 @@ export default function Home() {
               reducing project delivery time by 30%.
             </p>
             <Button asChild variant='outline'>
-              <Link href='/projects/agile-implementation'>Learn More</Link>
+              <Link href='https://google.com' target='_blank'>
+                Learn More
+              </Link>
             </Button>
           </Card>
         </div>
