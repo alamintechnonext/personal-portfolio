@@ -72,13 +72,13 @@ export default function ContactPage() {
                   <div className='text-sm text-muted-foreground'>
                     <a
                       href='https://linkedin.com'
-                      className='hover:text-primary'
+                      className='transition-all duration-300 hover:text-primary'
                     >
                       LinkedIn
                     </a>
                     <span className='mx-2'>·</span>
                     <a
-                      href='https://twitter.com'
+                      href='https://twitter.com transition-all duration-300'
                       className='hover:text-primary'
                     >
                       Twitter
@@ -94,41 +94,45 @@ export default function ContactPage() {
           <h2 className='mb-4 text-2xl font-semibold'>Send a Message</h2>
           <form onSubmit={handleSubmit} className='space-y-4'>
             <div>
-              <Input
+              <input
+                type='text'
                 placeholder='Your Name'
                 name='name'
                 value={formData.name}
                 onChange={handleChange}
                 required
+                className='focus:shadow-outline block w-full appearance-none rounded-md border border-gray-300 bg-white px-3 py-3 leading-normal hover:border-blue-400 focus:border-blue-400 focus:outline-none dark:bg-transparent'
               />
             </div>
             <div>
-              <Input
+              <input
                 type='email'
                 placeholder='Your Email'
                 name='email'
                 value={formData.email}
                 onChange={handleChange}
                 required
+                className='focus:shadow-outline block w-full appearance-none rounded-md border border-gray-300 bg-white px-3 py-3 leading-normal hover:border-blue-400 focus:border-blue-400 focus:outline-none dark:bg-transparent'
               />
             </div>
             <div>
-              <Input
+              <input
                 placeholder='Subject'
                 name='subject'
                 value={formData.subject}
                 onChange={handleChange}
                 required
+                className='focus:shadow-outline block w-full appearance-none rounded-md border border-gray-300 bg-white px-3 py-3 leading-normal hover:border-blue-400 focus:border-blue-400 focus:outline-none dark:bg-transparent'
               />
             </div>
             <div>
-              <Textarea
+              <textarea
                 placeholder='Your Message'
                 name='message'
                 value={formData.message}
                 onChange={handleChange}
                 required
-                className='min-h-[150px]'
+                className='focus:shadow-outline block min-h-[150px] w-full appearance-none rounded-md border border-gray-300 bg-white px-3 py-3 leading-normal hover:border-blue-400 focus:border-blue-400 focus:outline-none dark:bg-transparent'
               />
             </div>
             <Button type='submit' className='w-full'>
