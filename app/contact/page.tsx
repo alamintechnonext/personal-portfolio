@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { useToast } from '@/components/ui/use-toast';
 import { Mail, MessageSquare, Phone } from 'lucide-react';
+import { useToast } from '@/components/ui/use-toast';
 
 export default function ContactPage() {
   const { toast } = useToast();
@@ -14,15 +14,49 @@ export default function ContactPage() {
     subject: '',
     message: '',
   });
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Here you would typically handle the form submission
-    toast({
-      title: 'Message Sent!',
-      description: "Thank you for your message. I'll get back to you soon.",
-    });
-    setFormData({ name: '', email: '', subject: '', message: '' });
+
+    if (loading) return;
+
+    // Trigger form submission
+    const form = e.target as HTMLFormElement;
+
+    const formData = new FormData(form);
+    setLoading(true);
+
+    // Use fetch to submit the form
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+    })
+      .then((response) => {
+        if (response.ok) {
+          // Show success toast
+          toast({
+            title: 'Message Sent!',
+            description:
+              "Thank you for your message. I'll get back to you soon.",
+          });
+          // reset the form
+
+          setFormData({ name: '', email: '', subject: '', message: '' });
+        } else {
+          toast({
+            title: 'Failed to submit form!',
+            description: 'Something went wrong.',
+          });
+        }
+      })
+      .catch((error) => {
+        toast({
+          title: 'Failed to submit form!',
+          description: 'Something went wrong.',
+        });
+      })
+      .finally(() => setLoading(false));
   };
 
   const handleChange = (
@@ -40,7 +74,7 @@ export default function ContactPage() {
         <div>
           <h2 className='mb-4 text-2xl font-semibold'>Contact Information</h2>
           <div className='space-y-6'>
-            <Card className='p-4'>
+            <Card className='duration group p-4 transition-all hover:border-blue-400'>
               <div className='flex items-center space-x-3'>
                 <Mail className='h-5 w-5 text-primary' />
                 <div>
@@ -51,7 +85,7 @@ export default function ContactPage() {
                 </div>
               </div>
             </Card>
-            <Card className='p-4'>
+            <Card className='duration group p-4 transition-all hover:border-blue-400'>
               <div className='flex items-center space-x-3'>
                 <Phone className='h-5 w-5 text-primary' />
                 <div>
@@ -62,7 +96,7 @@ export default function ContactPage() {
                 </div>
               </div>
             </Card>
-            <Card className='p-4'>
+            <Card className='duration group p-4 transition-all hover:border-blue-400'>
               <div className='flex items-center space-x-3'>
                 <MessageSquare className='h-5 w-5 text-primary' />
                 <div>
@@ -87,10 +121,18 @@ export default function ContactPage() {
             </Card>
           </div>
         </div>
-
         <div>
           <h2 className='mb-4 text-2xl font-semibold'>Send a Message</h2>
-          <form onSubmit={handleSubmit} className='space-y-4'>
+          <form
+            onSubmit={handleSubmit}
+            className='space-y-4'
+            action={
+              loading
+                ? ''
+                : `https://formsubmit.co/${process.env.NEXT_PUBLIC_GMAIL_USER}`
+            }
+            method='POST'
+          >
             <div>
               <input
                 type='text'
@@ -133,8 +175,13 @@ export default function ContactPage() {
                 className='focus:shadow-outline block min-h-[150px] w-full appearance-none rounded-md border border-gray-300 bg-white px-3 py-3 leading-normal hover:border-blue-400 focus:border-blue-400 focus:outline-none dark:bg-transparent'
               />
             </div>
-            <Button type='submit' className='w-full'>
-              Send Message
+            <input type='hidden' name='_captcha' value='false' />
+
+            <Button
+              type='submit'
+              className={`w-full py-6 ${loading ? 'cursor-not-allowed bg-gray-400 text-white hover:bg-gray-400' : 'bg-black'}`}
+            >
+              {loading ? 'Loading...' : 'Send Message'}
             </Button>
           </form>
         </div>

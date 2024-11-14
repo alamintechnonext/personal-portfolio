@@ -66,7 +66,7 @@ export function Navigation() {
                     onClick={() => setOpen(false)}
                     className={cn(
                       'text-xl text-muted-foreground transition-colors hover:text-primary',
-                      pathname === route.href && 'text-primary'
+                      pathname === route.href && 'text-primary underline'
                     )}
                   >
                     <p className='mb-4'>{route.label}</p>
@@ -87,9 +87,9 @@ export function Navigation() {
                   key={route.href}
                   href={route.href}
                   className={cn(
-                    'relative text-xl transition-colors after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:text-primary after:hover:w-full dark:after:bg-white',
+                    'relative text-xl transition-all after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:text-primary after:hover:w-full dark:after:bg-white',
                     pathname === route.href
-                      ? 'text-primary'
+                      ? 'text-primary after:w-full'
                       : 'text-muted-foreground'
                   )}
                 >
