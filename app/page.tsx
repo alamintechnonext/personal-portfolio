@@ -45,7 +45,7 @@ export default function Home() {
         </h2>
         <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4'>
           <Card className='group p-6 transition-all duration-300 hover:border-blue-400'>
-            <BriefcaseIcon className='mb-4 h-12 w-12 text-primary' />
+            <BriefcaseIcon className='mb-4 h-12 w-12 text-primary transition-all duration-300 group-hover:text-[#4db5ff] dark:group-hover:text-primary' />
             <h3 className='mb-2 text-xl font-semibold'>Project Management</h3>
             <p className='text-muted-foreground'>
               Expert in planning, scheduling, and delivering complex projects on
@@ -53,7 +53,7 @@ export default function Home() {
             </p>
           </Card>
           <Card className='group p-6 transition-all duration-300 hover:border-blue-400'>
-            <Users className='mb-4 h-12 w-12 text-primary' />
+            <Users className='mb-4 h-12 w-12 text-primary transition-all duration-300 group-hover:text-[#4db5ff] dark:group-hover:text-primary' />
             <h3 className='mb-2 text-xl font-semibold'>Team Leadership</h3>
             <p className='text-muted-foreground'>
               Skilled in team building, mentoring, and fostering a collaborative
@@ -61,7 +61,7 @@ export default function Home() {
             </p>
           </Card>
           <Card className='group p-6 transition-all duration-300 hover:border-blue-400'>
-            <Award className='mb-4 h-12 w-12 text-primary' />
+            <Award className='mb-4 h-12 w-12 text-primary transition-all duration-300 group-hover:text-[#4db5ff] dark:group-hover:text-primary' />
             <h3 className='mb-2 text-xl font-semibold'>Agile & Scrum</h3>
             <p className='text-muted-foreground'>
               Certified Scrum Master with extensive experience in Agile
@@ -69,7 +69,7 @@ export default function Home() {
             </p>
           </Card>
           <Card className='group p-6 transition-all duration-300 hover:border-blue-400'>
-            <BookOpen className='mb-4 h-12 w-12 text-primary' />
+            <BookOpen className='mb-4 h-12 w-12 text-primary transition-all duration-300 group-hover:text-[#4db5ff] dark:group-hover:text-primary' />
             <h3 className='mb-2 text-xl font-semibold'>Strategic Planning</h3>
             <p className='text-muted-foreground'>
               Expertise in developing and executing strategic initiatives
