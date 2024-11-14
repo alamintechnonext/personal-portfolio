@@ -8,10 +8,10 @@ export default function Home() {
   return (
     <div className='container px-4 py-12 md:py-24'>
       {/* Hero Section with Image */}
-      <section className='mb-16 flex flex-col-reverse items-center gap-12 md:flex-row'>
+      <section className='group mb-16 flex flex-col-reverse items-center gap-12 md:flex-row'>
         <div className='flex-1 text-center md:text-left'>
           <h1 className='mb-6 text-4xl font-bold md:text-6xl'>
-            Project Management Professional
+            Project management professional
           </h1>
           <p className='mb-8 max-w-[700px] text-xl text-muted-foreground'>
             Certified Scrum Master (CSM) with 5+ years of experience in Product
@@ -27,7 +27,7 @@ export default function Home() {
             </Button>
           </div>
         </div>
-        <div className='relative h-[280px] w-[280px] overflow-hidden rounded-full border-8 border-muted md:h-[400px] md:w-[400px]'>
+        <div className='relative h-[280px] w-[280px] overflow-hidden rounded-full border-8 border-muted transition-all duration-300 group-hover:border-gray-300 md:h-[400px] md:w-[400px]'>
           <Image
             src='https://images.unsplash.com/photo-1560250097-0b93528c311a'
             alt='Professional Profile'
